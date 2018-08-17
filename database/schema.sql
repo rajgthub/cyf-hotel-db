@@ -72,15 +72,15 @@ foreign key
 (id)
   );
 -- 7 reservations
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (1,2,'2018/07/10', 100);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (2,3,'2018/07/10', 200);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (3,4,'2018/07/10', 300);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (4,1,'2018/07/10', 100);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (1,2,'2018/07/10', 200);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (2,3,'2018/07/10', 500);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (3,4,'2018/07/10', 200);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (4,1,'2018/07/10', 700);
-  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (5,1,'2018/07/10', 1700);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (1,2,'2018-06-10', 100);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (2,3,'2018-07-11', 200);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (3,4,'2018-08-3', 300);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (4,1,'2018-05-04', 100);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (1,2,'2018-04-06', 200);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (2,3,'2018-02-01', 500);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, room_price) VALUES (3,4,'2018-03-24', 200);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, check_out_date, room_price) VALUES (4,1,'2018-07-10','2018-07-14', 700);
+  INSERT INTO reservations (customer_id, room_id, check_in_date, check_out_date, room_price) VALUES (5,1,'2018-08-10', '2018-08-15', 1700);
 DROP table IF EXISTS invoices;
 create table IF NOT EXISTS invoices (
       id integer primary key AUTOINCREMENT ,

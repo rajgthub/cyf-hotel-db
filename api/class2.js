@@ -194,15 +194,41 @@ router.delete("/reservations/:id", function (req, res) {
 });
 
 
-// get '/reservations/starting-on/:startDate'
+// get '/reservations/starting-on/:startDate':: HOMEWORK 5
 // TODO: add code here
 router.get("/reservations/starting-on/:startDate", (req, res) => {
-  res.send(req.params.startDate)
+  let { startDate } = req.params
+  console.log(startDate);
+  var sql = `select * from reservations where check_in_date = '${startDate}'`;
+  db.all(sql, [], (err, rows) => {
+    if (err) {
+      console.log("ERROR fetching from the database:", err);
+      return;
+    }
+    // const customer = rows.filter(customer => customer.id == id);
+    console.log("Request succeeded, new data fetched", rows);
+    res.status(200).json({ reservations: rows });
+  });
+  // res.send(req.params.startDate)
 });
 
-// get '/reservations/active-on/:date'
+// get '/reservations/active-on/:date':: HOMEWORK 6
 // TODO: add code here
+router.get("/reservations/active-on/:date", (req, res) => {
+  let { date } = req.params;
+  var sql = `SELECT * FROM reservations WHERE check_in_date <= ? 
+      AND check_out_date > ?`;
+  db.all(sql, [date, date], (err, rows) => {
+    if (err) {
+      console.log("ERROR fetching from the database:", err);
+      return;
+    }
 
+    console.log("Request succeeded, new data fetched", rows);
+    res.status(200).json({ reservations: rows });
+  });
+  // res.send(req.params.startDate)
+});
 
 // post '/reservations'
 // EXPECTED JSON Object:
